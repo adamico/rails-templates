@@ -13,6 +13,8 @@ end
 git :init
 
 file ".gitignore", <<-END
+*~
+.*.swp
 .DS_Store
 log/*.log
 tmp/**/*
@@ -23,6 +25,7 @@ END
 run "touch tmp/.gitignore log/.gitignore vendor/.gitignore"
 run "cp config/database.yml config/example_database.yml"
 
-git :add => ".", :commit => "-m 'initial commit.'"
+git :add => "."
+git :commit => "-a -m 'initial commit.'"
 
 generate :nifty_layout
